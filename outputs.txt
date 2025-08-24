@@ -1,0 +1,287 @@
+
+OUTPUTS:
+
+--LIST OF ALL STUDENTS
+
+STUDENT_ID  NAME        AGE  GENDER
+----------  ----------  ---  ------
+1           ARUN        20   MALE  
+2           SATHVIKA    23   FEMALE
+3           KRISHNA     19   MALE  
+4           VARUN       20   MALE  
+5           PRAVALLIKA  20   FEMALE
+6           SIDDHI      21   FEMALE
+7           SRUJANA     19   FEMALE
+8           VAMSHI      20   MALE  
+9           HAMSIKA     21   FEMALE
+10          ROHITH      20   MALE  
+
+--COURSES TABLE
+
+COURSE_ID  COURSE_NAME         CREDITS
+---------  ------------------  -------
+201        AI-ML               3      
+202        CLOUD COMPUTING     2      
+203        BLOCK-CHAIN         3      
+204        CYBER SECURITY      3      
+205        DATA SCIENCE        2      
+206        INTERNET OF THINGS  2      
+207        WEB DEVELOPMENT     3      
+208        DEVOPS              3      
+209        UI/UX DESIGN        2      
+210        BIG DATA ANALYSIS   2   
+
+--ENROLLMENTS TABLE
+
+ENROLLMENT_ID  STUDENT_ID  COURSE_ID  GRADE
+-------------  ----------  ---------  -----
+1001           1           201        A    
+1002           5           201        A    
+1003           10          201        A    
+1004           3           206        B    
+1005           6           201        A    
+1006           3           205        A    
+1007           6           207        A    
+1008           10          202        O    
+1009           8           210        O    
+1010           2           207        A    
+1011           7           202        A    
+1012           7           206        B    
+1013           3           209        B    
+1014           1           203        O    
+1015           8           201        A    
+1016           5           205        O    
+1017           9           205        O    
+1018           9           203        A    
+1019           5           207        C    
+1020           5           210        A    
+1021           2           201        A    
+1022           6           202        C    
+1023           7           208        O    
+1024           1           207        B    
+1025           2           208        B    
+1026           2           209        O    
+1027           3           210        A    
+1028           9           201        A    
+1029           8           208        B    
+1030           10          209        C  
+
+
+--INFORMATION OF COURSE ID 209
+
+COURSE_ID  COURSE_NAME   CREDITS
+---------  ------------  -------
+209        UI/UX DESIGN  2      
+
+--STUDENTS ENROLLED FOR COURSE ID 209
+
+ENROLLMENT_ID  STUDENT_ID  COURSE_ID  GRADE
+-------------  ----------  ---------  -----
+1013           3           209        B    
+1026           2           209        O    
+1030           10          209        C    
+
+--INFORMATION OF STUDENTS SORTED IN DESCENDING ORDER OF AGE AND ASCENDING ORDER OF NAME
+
+STUDENT_ID  NAME        AGE  GENDER
+----------  ----------  ---  ------
+2           SATHVIKA    23   FEMALE
+9           HAMSIKA     21   FEMALE
+6           SIDDHI      21   FEMALE
+1           ARUN        20   MALE  
+5           PRAVALLIKA  20   FEMALE
+10          ROHITH      20   MALE  
+8           VAMSHI      20   MALE  
+4           VARUN       20   MALE  
+3           KRISHNA     19   MALE  
+7           SRUJANA     19   FEMALE
+
+--STUDENTS HAVING GRADE "O" IN THEIR ENROLLED COURSES DISPLAYED IN ASCENDING ORDER OF THEIR IDs
+
+STUDENT_ID  COURSE_ID
+----------  ---------
+1           203      
+2           209      
+5           205      
+7           208      
+8           210      
+9           205      
+10          202     
+
+--TOTAL NUMBER OF ENROLLMENTS DONE BY STUDENTS
+
+no_of_enrollments
+-----------------
+30               
+
+--TOTAL NUMBER OF CREDITS RECIEVED BY THE STUDENT HAVING STUDENT ID 1
+
+total_credits
+-------------
+9   
+
+--COURSE IDs WITH NUMBER OF STUDENTS ENROLLED IN THAT COURSE
+
+COURSE_ID  no_of_students
+---------  --------------
+201        7             
+202        3             
+203        2             
+205        3             
+206        2             
+207        4             
+208        3             
+209        3             
+210        3    
+
+--USING HAVING CLAUSE WE WILL FIND COURSE IDs WITH NUMBER OF ENROLLMENTS GREATER THAN 3
+
+COURSE_ID  no_of_students
+---------  --------------
+201        7             
+207        4             
+
+--INNER JOIN
+    --INFO OF COURSE NAMES,IDs AND NUMBER OF ENROLLMENTS FOR THAT COURSE
+
+COURSE_NAME         COURSE_ID  no_of_enrollments
+------------------  ---------  -----------------
+AI-ML               201        7                
+CLOUD COMPUTING     202        3                
+BLOCK-CHAIN         203        2                
+DATA SCIENCE        205        3                
+INTERNET OF THINGS  206        2                
+WEB DEVELOPMENT     207        4                
+DEVOPS              208        3                
+UI/UX DESIGN        209        3                
+BIG DATA ANALYSIS   210        3                
+
+ --LEFT JOIN
+    --INFO OF ALL COURSE NAMES,IDs AND NUMBER OF ENROLLMENTS FOR THAT COURSE
+
+COURSE_NAME         COURSE_ID  no_of_enrollments
+------------------  ---------  -----------------
+CYBER SECURITY      204        0                
+BLOCK-CHAIN         203        2                
+INTERNET OF THINGS  206        2                
+CLOUD COMPUTING     202        3                
+DATA SCIENCE        205        3                
+DEVOPS              208        3                
+UI/UX DESIGN        209        3                
+BIG DATA ANALYSIS   210        3                
+WEB DEVELOPMENT     207        4                
+AI-ML               201        7   
+
+--RIGHT JOIN
+    --INFO OF ALL ENROLLMENT ID,COURSE ID AND COURSE CREDITS RESPECTIVELY 
+
+ENROLLMENT_ID  COURSE_ID  CREDITS
+-------------  ---------  -------
+1001           201        3      
+1002           201        3      
+1003           201        3      
+1004           206        2      
+1005           201        3      
+1006           205        2      
+1007           207        3      
+1008           202        2      
+1009           210        2      
+1010           207        3      
+1011           202        2      
+1012           206        2      
+1013           209        2      
+1014           203        3      
+1015           201        3      
+1016           205        2      
+1017           205        2      
+1018           203        3      
+1019           207        3      
+1020           210        2      
+1021           201        3      
+1022           202        2      
+1023           208        3      
+1024           207        3      
+1025           208        3      
+1026           209        2      
+1027           210        2      
+1028           201        3      
+1029           208        3      
+1030           209        2    
+
+
+--SUB QUERIES
+    --RETRIVING THE STUDENTS WHO ENROLLED FOR COURSES AND DID NOT ENROLLED FOR THE "AI-ML" COURSE
+
+ENROLLMENT_ID  STUDENT_ID
+-------------  ----------
+1004           3         
+1006           3         
+1011           7         
+1012           7         
+1013           3         
+1023           7         
+1027           3         
+
+--USING DISTINCT
+    --RETRIEVAL OF COURSE_IDs WHICH HAVE BEEN ENROLLED BY ATLEAST ONE STUDENT
+
+COURSE_ID
+---------
+201      
+206      
+205      
+207      
+202      
+210      
+209      
+203      
+208  
+
+--UPDATE CLAUSE 
+    --CHANGING THE AGE TO 23 FOR THE STUDENT WHOSE NAME IS SATHVIKA
+    --TO VERIFY THE CHANGES
+    SELECT age FROM student WHERE name = "SATHVIKA";
+    
+AGE
+---
+23 
+
+
+--USING DELETE
+    --DELETE ROW WITH ENROLLMENT ID 1002 FROM ENROLLMENTS TABLE
+
+    ENROLLMENT_ID  STUDENT_ID  COURSE_ID  GRADE
+    -------------  ----------  ---------  -----
+    1001           1           201        A    
+    1003           10          201        A    
+    1004           3           206        B    
+    1005           6           201        A    
+    1006           3           205        A    
+    1007           6           207        A    
+    1008           10          202        O    
+    1009           8           210        O    
+    1010           2           207        A    
+    1011           7           202        A    
+    1012           7           206        B    
+    1013           3           209        B    
+    1014           1           203        O    
+    1015           8           201        A    
+    1016           5           205        O    
+    1017           9           205        O    
+    1018           9           203        A    
+    1019           5           207        C    
+    1020           5           210        A    
+    1021           2           201        A    
+    1022           6           202        C    
+    1023           7           208        O    
+    1024           1           207        B    
+    1025           2           208        B    
+    1026           2           209        O    
+    1027           3           210        A    
+    1028           9           201        A    
+    1029           8           208        B    
+    1030           10          209        C  
+
+    --DELETE ENROLLMENTS TABLE
+
+    Parse error near line 78: no such table: ENROLLMENTS
