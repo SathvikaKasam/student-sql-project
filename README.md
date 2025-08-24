@@ -56,9 +56,13 @@ How To Run
 
 
 .header ON(to Display the columnn names)
+
 .mode columns(It changes how query results are displayed.)
+
 .read schema.sql
+
 .read insert_data.sql
+
 .read queries.sql
 
 
